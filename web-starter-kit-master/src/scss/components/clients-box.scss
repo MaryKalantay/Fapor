@@ -1,0 +1,76 @@
+//* Clients Box *//
+.clients-box {
+  background: #f7f7f7;
+  padding: 115px 0;
+  .clients-slider {
+    .slick-slider {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 -13px;
+      margin-top: 54px;
+      .slick-arrow {
+        fill: map-get($colors, 'quaternary-background-color');
+        @include animate(fill, .2s, ease-out);
+        cursor: pointer;
+        height: 15px;
+        &:hover {
+          fill: map-get($colors, 'secondary-text-color');
+        }
+      }
+      .item {
+        text-align: center;
+        .client {
+          &__img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: auto;
+          }
+          &__review {
+            .text {
+              margin-top: 25px;
+              font-weight: 100;
+              line-height: 1.6;
+              padding: 0 120px;
+            }
+            .name {
+              margin-top: 25px;
+              text-transform: uppercase;
+              color: map-get($colors, 'secondary-text-color');
+              font-size: calc(#{ map-get($base, 'base-font-size')} + 2px);
+            }
+            .position {
+              margin: 10px 0 5px 0;
+            }
+          }
+        }
+      }
+    }
+  }
+  .h-line {
+    &::after {
+      border-bottom: 2px solid map-get($colors, 'quaternary-background-color');
+    }
+  }
+}
+
+@media screen and (max-width: map-get($breakpoints, 'desktop') ) {
+  .clients-box {
+    padding: 60px 0;
+    .clients-slider {
+      .slick-slider {
+        .item {
+          .client {
+            &__review {
+              .text {
+                padding: 0 10px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

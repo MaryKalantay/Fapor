@@ -1,0 +1,60 @@
+// This is base reset for form elements.
+//
+// Note: If you use a framework that includes form styling then you need to remove this file.
+
+form,
+fieldset {
+  margin: 0;
+  padding: 0;
+  border-style: none;
+}
+
+input[type='text'],
+input[type='tel'],
+input[type='email'],
+input[type='search'],
+input[type='password'],
+textarea {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+  box-sizing: border-box;
+  border: 1px solid map-get($forms, 'form-element-border-color');
+  padding: map-get($forms, 'form-element-padding');
+  font-family: map-get($forms, 'form-font-family');
+  background: none;
+  color: map-get($forms, 'form-element-text-color');
+
+  &:focus {
+    border-color: map-get($forms, 'form-element-focus-border-color');
+    outline: none;
+  }
+
+  @include placeholder {
+    color: map-get($forms, 'placeholder-color');
+  }
+}
+
+select {
+  -webkit-border-radius: 0;
+}
+
+textarea {
+  resize: vertical;
+  vertical-align: top;
+}
+
+button,
+input[type='button'],
+input[type='reset'],
+input[type='file'],
+input[type='submit'] {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+  cursor: pointer;
+  font-family: map-get($forms, 'form-font-family');
+  background: map-get($forms, 'form-submit-color');
+  border: none;
+  color: white;
+  padding: 10px;
+  outline: none;
+}

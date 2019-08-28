@@ -1,0 +1,154 @@
+//* Header *//
+
+.header {
+  background: map-get($colors, 'quaternary-background-color');
+  position: fixed;
+  width: 100%;
+  z-index: 5;
+  .header-body {
+    display: flex;
+    align-items: center;
+    height: 100px;
+  }
+  &__logo {
+    .logo {
+      display: flex;
+      align-items: center;
+      fill: map-get($colors, 'tertiary-link-color');
+      color: map-get($colors, 'secondary-link-color');
+      font-size: 26px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      font-family: map-get($base, 'base-font-sans-serif');
+      font-weight: 700;
+      margin-left: 5px;
+      @include animate(color, .2s, ease-out);
+      span {
+        padding-left: 30px;
+      }
+      &:hover {
+        text-decoration: none;
+        color: map-get($colors, 'tertiary-link-color');
+      }
+    }
+  }
+  &__toggle {
+    display: none;
+    margin-left: auto;
+    .toggle-btn {
+      background: map-get($colors, 'secondary-text-color');
+      display: flex;
+      height: 2px;
+      position: relative;
+      @include animate(background, .2s, ease-out);
+      width: 20px;
+      &::before,
+      &::after {
+        background: map-get($colors, 'secondary-text-color');
+        content: '';
+        display: flex;
+        height: 100%;
+        position: absolute;
+        @include animate(background, .2s, ease-out);
+        width: 100%;
+      }
+      &::before {
+        top: 5px;
+      }
+      &::after {
+        top: -5px;
+      }
+    }
+  }
+  &__nav {
+    display: flex;
+    margin-left: auto;
+    z-index: 5;
+  .nav-link {
+      display: flex;
+      color: map-get($colors, 'secondary-link-color');
+      text-transform: uppercase;
+      padding: 42px 12px;     
+      margin: 0 21px;
+      letter-spacing: map-get($base, 'base-letter-spacing');
+      &:hover,
+      &:focus  {
+        position: relative;
+        text-decoration: none;
+        color: map-get($colors, 'secondary-text-color');
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+    .nav-link.active {
+      position: relative;
+      &:after {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        content: "";
+        height: 2px;
+        background: map-get($colors, 'secondary-text-color');
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: map-get($breakpoints, 'desktop') ) {
+  .header {
+    &__nav {
+      overflow: hidden;
+      clear: both;
+      max-height: 0;
+      margin-right: 0;
+      @include animate(color max-height, .2s, ease-out);
+      width: 100%;
+      position: absolute;
+      flex-direction: column;
+      top: 100px;
+      left: 0;
+      background: map-get($colors, 'tertiary-background-color');
+      .nav-link {
+        justify-content: center;
+        margin: 0;
+        padding: 12px 0;
+        border-bottom: 1px solid map-get($colors, 'quaternary-background-color');
+        &:hover {
+          color: map-get($colors, 'secondary-text-color');
+        }
+        &::after {
+          display: none;
+        }
+      }
+    }
+    &__nav.open {
+      clear: both;
+      max-height: 500px;
+      @include animate(color max-height, .2s, ease-out);
+    }
+    &__toggle {
+      display: flex;
+    }
+    &__toggle.open {
+      .toggle-btn {
+        background: transparent;
+        &::before,
+        &::after {
+          height: 1px;
+          top: 0;
+        }
+        &::before {
+          transform: rotate(-45deg);
+        }
+        &::after {
+          transform: rotate(45deg);
+        }
+      }
+    }
+  }
+}
+
+
+

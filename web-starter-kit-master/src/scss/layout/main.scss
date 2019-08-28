@@ -1,0 +1,28 @@
+.container {
+  max-width: 1385px;
+}
+
+.content-section {
+  .container {
+    max-width: 1170px;
+  }
+}
+
+@media screen and (max-width: map-get($breakpoints, 'widescreen') ) {
+  .container {
+    max-width: 1140px;
+  }
+  .content-section {
+    .container {
+      max-width: 1024px;
+    }
+  }
+}
+
+svg path {
+  fill: inherit;
+}
+
+svg path:hover {
+  fill: inherit;
+}

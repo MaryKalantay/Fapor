@@ -1,0 +1,153 @@
+//* Managers Box *//
+.managers-box {
+  padding-top: 150px;
+  padding-bottom: 32px;
+  .container {
+    max-width: 1220px;
+  }
+  h2 {
+    text-align: center;
+    text-transform: uppercase;
+    color: map-get($colors, 'quaternary-background-color');
+  }
+  .manager-col {
+    padding-left: 48px;
+    padding-right: 48px;
+    margin-top: 20px;
+  }
+  .manager {
+    @include animate(all, .2s, ease-out);
+    &:hover {
+      source, img {
+        transform: scale(1.2);
+      }
+    }
+    &__info-holder {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 25px 6px 25px 14px;
+    }
+    &__img {
+      display: flex;
+      overflow: hidden;
+      picture {
+        min-width: 100%;
+      }
+      source, img {
+        display: flex;
+        min-width: 100%;
+        background-size: cover;
+        overflow: hidden;
+        @include animate(all, 8s, ease-out);
+        transform: scale(1);
+      }
+    }
+    &__info {
+      .name {
+        font-size: calc(#{ map-get($base, 'base-font-size')} + 2px);
+        text-transform: uppercase;
+        font-family: map-get($base, 'base-font-sans-serif');
+        font-weight: 500;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+      .position {
+        font-family: map-get($base, 'base-font-family');
+        color: map-get($colors, 'secondary-text-color');
+        margin-top: 4px;
+      }
+    }
+    &__social {
+      display: flex;
+      .social-link {
+        background: #dedede;
+        color: map-get($colors, 'tertiary-text-color');
+        fill: map-get($colors, 'tertiary-text-color');
+        border-radius: 50%;
+        width: 34px;
+        height: 34px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 7px;
+        @include animate(background, .2s, ease-out);
+        &:hover {
+          background: map-get($colors, 'secondary-text-color');
+        }
+      }
+    }
+  }
+  .show-all {
+    display: flex;
+    margin-top: 18px;
+    justify-content: center;
+    &__btn {
+      border: 1px solid map-get($colors, 'quaternary-background-color');
+      font-size: calc(#{ map-get($base, 'base-font-size')} + 2px);
+      line-height: 1;
+      padding: 17px 42px;
+      border-radius: 30px;
+      text-transform: uppercase;
+      @include animate(all, .2s, ease-out);
+      &:hover {
+        background: map-get($colors, 'quaternary-background-color');
+        color: map-get($colors, 'tertiary-text-color');
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: map-get($breakpoints, 'widescreen') ) {
+  .managers-box {
+    .container {
+      max-width: 1080px;
+    }
+    .manager {
+      &:hover {
+        source, img {
+          transform: scale(1);
+        }
+      }
+      &__info-holder { 
+        padding: 15px 0;
+      }
+    }
+  }  
+}
+
+@media screen and (max-width: map-get($breakpoints, 'desktop') ) {
+  .managers-box {
+    padding-top: 60px;
+    .manager-col {
+      padding-left: 28px;
+      padding-right: 28px;
+      margin-top: 20px;
+      .manager {
+        &__info-holder {
+          flex-direction: column;
+          justify-content: center;
+          text-align: center;
+        }
+        &__img {
+          max-width: 320px;
+          margin: auto;
+        }
+        &__social {
+          .social-link {
+            margin: 10px 4px;
+          }
+        }
+      }
+    }
+    .show-all {
+      &__btn {
+        padding: 10px 35px;
+        font-size: map-get($base, 'base-font-size');
+      }
+    }
+  }
+}
+
